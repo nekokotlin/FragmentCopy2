@@ -15,13 +15,13 @@ class FirstImageFragment: Fragment() {
 
     private val imageUrl = "https://static.pexels.com/photos/596940/pexels-photo-596940.jpeg"
 
-    private fun loadImageUsingGlide(){
+    private fun loadImageUsingGlide() {
         firstFragmentProgressBar.visibility = View.VISIBLE
         GlideApp.with(activity).asBitmap()
                 .load(Uri.parse(imageUrl))
-                .into(object: BitmapImageViewTarget(firstFragmentImageView){
-                    override fun onResourceReady(resource: Bitmap?, transition: Transition<in Bitmap>?{
-                        super.onResourceReady(resource,transition)
+                .into(object : BitmapImageViewTarget(firstFragmentImageView){
+                    override fun onResourceReady(resource: Bitmap?, transition: Transition<in Bitmap>?) {
+                        super.onResourceReady(resource, transition)
                         firstFragmentProgressBar.visibility = View.INVISIBLE
                     }
                 })
@@ -32,12 +32,11 @@ class FirstImageFragment: Fragment() {
         loadImageUsingGlide()
     }
 
-    companion object{
+    companion object {
         fun newInstance() = FirstImageFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_first_image, container, false)
     }
 }
