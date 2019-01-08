@@ -11,7 +11,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val fragment = FirstImageFragment.newInstance()
+        replaceFragment(fragment)
+    }
 
-
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace((R.id.fragmentContainer, fragment)
+        fragmentTransaction.commit())
     }
 }
